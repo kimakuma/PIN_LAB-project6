@@ -43,7 +43,7 @@ int main(int ac, char** av)
 	torch::jit::script::Module module;
 	try 
 	{
-		module = torch::jit::load("./mnist_model_realreal.pt");
+		module = torch::jit::load("./MNIST_model_script.pt");
 	}
 	catch (const c10::Error& e)
 	{
@@ -62,13 +62,13 @@ int main(int ac, char** av)
 		// add rectable to frame
 		rectangle(resized_image, Rect(left, top, right, bottom), Scalar(0, 255, 0), 2);
 
-		// cut ROI ( roi : ���ɿ��� )
+		// cut ROI ( roi : °ü½É¿µ¿ª )
 		roi = resized_image(Rect(left + 2, top + 2, 396, 396));
 
 		// Color change : RGB to GRAY ( roi -> gray )
 		cvtColor(roi, gray, CV_RGB2GRAY);
 
-		// threshold �Ӱ谪 ó�� ( gray -> img_threshold )
+		// threshold ÀÓ°è°ª Ã³¸® ( gray -> img_threshold )
 		// THRESH_BINARY_INV or THRESH_BINARY
 		threshold(gray, img_threshold, 150, 255, THRESH_BINARY_INV);
 
