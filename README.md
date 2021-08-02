@@ -6,3 +6,6 @@ OpenCV in C++
 
 cv.__version__ >> 3.4.2
 libtorch, torchscript
+
+model -> c++
+: use annotation part to save model to torchscript
