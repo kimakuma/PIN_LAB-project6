@@ -1,5 +1,5 @@
 #include "opencv.hpp"
-#include "opencv_modules.hpp"
+#include "opencv2/opencv_modules.hpp"
 #include <torch/torch.h>
 #include <iostream>
 #include <torch/script.h>
@@ -19,6 +19,8 @@ int main(int ac, char** av)
 	int right = left + roi_long;
 	int top = margin;
 	int bottom = top + roi_long;
+	int roi_left = 190;
+	int roi_top = 190;
 
 	string pred;
 
@@ -43,11 +45,11 @@ int main(int ac, char** av)
 	torch::jit::script::Module module;
 	try 
 	{
-		module = torch::jit::load("./MNIST_model_script.pt");
+		module = torch::jit::load("mnist_model_script.pt");
 	}
 	catch (const c10::Error& e)
 	{
-		std::cerr << "error loading the model\n";
+		std::cerr << "error loading the model \n";
 		return -1;
 	}
 
@@ -60,15 +62,15 @@ int main(int ac, char** av)
 		resize(frame, resized_image, Size(capture_width, capture_height));
 
 		// add rectable to frame
-		rectangle(resized_image, Rect(left, top, right, bottom), Scalar(0, 255, 0), 2);
+		rectangle(resized_image, Rect(roi_left, roi_top, 170, 170), Scalar(0, 255, 0), 2);
 
-		// cut ROI ( roi : °ü½É¿µ¿ª )
-		roi = resized_image(Rect(left + 2, top + 2, 396, 396));
+		// cut ROI ( roi : 관심영역 )
+		roi = resized_image(Rect(roi_left, roi_top, 170, 170));
 
 		// Color change : RGB to GRAY ( roi -> gray )
-		cvtColor(roi, gray, CV_RGB2GRAY);
+		cvtColor(roi, gray, COLOR_RGB2GRAY);
 
-		// threshold ÀÓ°è°ª Ã³¸® ( gray -> img_threshold )
+		// threshold 임계값 처리 ( gray -> img_threshold )
 		// THRESH_BINARY_INV or THRESH_BINARY
 		threshold(gray, img_threshold, 150, 255, THRESH_BINARY_INV);
 
@@ -93,7 +95,7 @@ int main(int ac, char** av)
 
 		// camera
 		imshow("camera", resized_image);
-		imshow("threshold", img_threshold);
+		imshow("threshold", img_threshold); 
 
 		// if the user pressed "q", then stop
 		if (waitKey(1) == 27)
