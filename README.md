@@ -11,8 +11,8 @@ model -> C++, JAVA
 : use annotation part to save model to torchscript
 
 
-![header](https://capsule-render.vercel.app/api?type=soft&color=006EDB&fontColor=DEEAF7&height=200&section=header&text=PIN_LAB&desc=Project%205&descAlignY=80&fontSize=90)
-# PIN_LAB: Project 5
+![header](https://capsule-render.vercel.app/api?type=soft&color=006EDB&fontColor=DEEAF7&height=200&section=header&text=PIN_LAB&desc=Project%206&descAlignY=80&fontSize=90)
+# PIN_LAB: Project 6
 
 Text conversion of WAV file using Google Cloud Platform Speech-to-Text API
 
@@ -21,7 +21,6 @@ Text conversion of WAV file using Google Cloud Platform Speech-to-Text API
 ## Navigation
 1. [Description](#Description)
 2. [Getting started](#Getting-Started)
-3. [Architecture](#Architecture)
 
 ---
 
