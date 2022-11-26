@@ -1,16 +1,3 @@
-# project6
-real_time_digit_recognition
-
-MNIST model based on Pytorch
-OpenCV in C++, JAVA
-
-cv.__version__ >> 3.4.2
-libtorch, torchscript
-
-model -> C++, JAVA
-: use annotation part to save model to torchscript
-
-
 ![header](https://capsule-render.vercel.app/api?type=soft&color=006EDB&fontColor=DEEAF7&height=200&section=header&text=PIN_LAB&desc=Project%206&descAlignY=80&fontSize=90)
 # PIN_LAB: Project 6
 
@@ -43,7 +30,14 @@ See deployment for notes on how to deploy the project on a live system.
 
 - Installing OpenCV
     - [OpenCV](https://opencv.org/), [GitHub](https://github.com/opencv/opencv), [guide](https://docs.opencv.org/4.x/df/d65/tutorial_table_of_content_introduction.html), [on Raspberry PI](https://qengineering.eu/install-opencv-4.3-on-raspberry-64-os.html)
-    - 
+   
+---
+
+## Memo
+- Version of CV: 3.4.2
+- Need libtorch, torchscript
+- Use annotation part to save model to torchscript (C++, JAVA)
+
 ---
 
 ## Stacks
